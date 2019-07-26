@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1">
+
+<!-- stylesheet -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+
+	<!-- font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/img/fav.png">
+
+</head>
+<body>
+	<!-- for header -->
+	<div class="header">
+		<div class="container header-menu">
+ 
+			<!-- menu start -->
+			<div class="menu">
+				<nav>
+				  	<ul> 
+				    	<li><a href="/index.html"><i class="fa fa-home"></i> Home</a></li>
+				    	<li><a href="#">Course</a>
+				      		<ul class="dropdown">
+				        		<li><a target="_blank" href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019"> Zybook</a></li>
+                                <li><a target="_blank" href="https://app.tophat.com/">TopHat</a></li>
+                                <li><a target="_blank" href="https://www.onlc.com/g-suite-training-classes.htm?gclid=CjwKCAjwmtDpBRAQEiwAC6lm42Y8rDlMjDSaM8VNZmMka7wVqZaoyVisdz0hsxEsye4YDh4Z-BLBChoCTq4QAvD_BwE">Course Google Drive</a></li>
+                                <li><a target="_blank" href="https://www.w3schools.com/">W3Schools</a></li>
+				      		</ul>
+				    	</li>
+			   		 	<li><a href="#">Search</a>
+				    		<ul class="dropdown">
+				        		<li><a href="fixed-list.html">Fixed List</a></li>
+				        		<li><a href="from-file.html">Form File</a></li>
+				        		<li><a href="google-api.html">Google API</a></li>
+				        		<li><a href="custom-search.html">My Search Engine</a></li>
+				      		</ul>
+			      		</li>
+			      		
+				      	<li ><a href="#">Browse</a>
+				    		<ul class="dropdown">
+				        		<li><a href="navigator.html">Navigator</a></li>
+				        		<li><a href="window.html">Window</a></li>
+				        		<li><a href="screen.html">Screen</a></li>
+				        		<li><a href="location.html">Location</a></li>
+				        		<li><a href="geolocation.html">GeoLocation</a></li>
+				      		</ul>
+				      	</li>
+				      	<li class="activemenu"><a href="#">About</a>
+				    		<ul class="dropdown">
+				        		<li><a href="about.html">About Develpoer</a></li>
+				        		<li><a href="contact.html">Contact Us</a></li>
+				      		</ul>
+				      	</li>
+				  	</ul>
+				</nav>
+			</div>
+			<div class="clearfix"></div>
+			<!-- end menu -->
+		</div>		
+	</div>
+	<!-- end header -->
+
+	
+
+	<!-- for navigator -->
+	<div class="navigator">
+		<div class="container">
+			<h3><img src="assets/img/contact_png.png" width="80px;"> Contact</h3>
+			<div id="results" class="aboutinfo">
+				<div class="split left " >
+                    <div class="centered">
+                   
+                    <div class="contact_info">
+                        <div class="info_item">
+                            <i class="lnr lnr-home"></i>
+                            <h6>80 5th Ave, New York</h6>
+                            <p>United States</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-phone-handset"></i>
+                            <h6><a href="#">+1 (404) 820 1342</a></h6>
+                            <p>Mon to Fri 9am to 6 pm</p>
+                        </div>
+                        <div class="info_item">
+                            <i class="lnr lnr-envelope"></i>
+                            <h6><a href="#">nikunjangc@gmail.com</a></h6>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                        </div>
+                </div>
+                
+                    <div class="split right ">
+                        <div class="centered">
+                    
+                    <form method="POST" action="https://formspree.io/nikunjangc@gmail.com">
+                         <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-12 text-right">
+                            
+                            
+                            <input type="text" name="_gotcha" style="display:none" />
+                            <button type="submit" >Send Message</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+                </div>
+			</div>
+    </div>
+	<!-- end navigator -->
+	
+	<!-- for footer -->
+	<div class="footer">
+		<div class="container">
+			<h3>Copyright &copy; Nikunjan GC</h3>
+		</div>
+	</div>
+	<!-- end footer -->
+	<!-- for scripts -->
+        <script>
+        var message = "";
+        $("#sendMessage").on("click", function() {
+            message = $("#contactform").serialize();
+            $.ajax({
+                url: "https://formspree.io/nikunjangc@gmail.com", 
+                method: "POST",
+                data: {message: message},
+                dataType: "json"
+            });
+            alert('Thanks for the email, we\'ll be in touch promptly.');
+            return false;
+        });
+    </script>
+	<script src="assets/js/jquery.min.js"></script>
+        <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/hexagons.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <!-- contact js -->
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/contact.js"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="js/gmaps.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>

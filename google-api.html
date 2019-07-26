@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1">
+
+	<!-- stylesheet -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+
+	<!-- font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/img/fav.png">
+
+</head>
+<body>
+	<!-- for header -->
+	<div class="header">
+		<div class="container header-menu">
+ 
+			<!-- menu start -->
+			<div class="menu">
+				<nav>
+				  	<ul> 
+				    	<li><a href="/index.html"><i class="fa fa-home"></i> Home</a></li>
+				    	<li><a href="#">Course</a>
+				      		<ul class="dropdown">
+				        		<li><a target="_blank" href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019"> Zybook</a></li>
+                                <li><a target="_blank" href="https://app.tophat.com/">TopHat</a></li>
+                                <li><a target="_blank" href="https://www.onlc.com/g-suite-training-classes.htm?gclid=CjwKCAjwmtDpBRAQEiwAC6lm42Y8rDlMjDSaM8VNZmMka7wVqZaoyVisdz0hsxEsye4YDh4Z-BLBChoCTq4QAvD_BwE">Course Google Drive</a></li>
+                                <li><a target="_blank" href="https://www.w3schools.com/">W3Schools</a></li>
+				      		</ul>
+				    	</li>
+			   		 	<li class="activemenu"><a href="#">Search</a>
+				    		<ul class="dropdown">
+				        		<li><a href="fixed-list.html">Fixed List</a></li>
+				        		<li><a href="from-file.html">Form File</a></li>
+				        		<li><a href="google-api.html">Google API</a></li>
+				        		<li><a href="custom-search.html">My Search Engine</a></li>
+				      		</ul>
+			      		</li>
+			      		
+				      	<li><a href="#">Browse</a>
+				    		<ul class="dropdown">
+				        		<li><a href="navigator.html">Navigator</a></li>
+				        		<li><a href="window.html">Window</a></li>
+				        		<li><a href="screen.html">Screen</a></li>
+				        		<li><a href="location.html">Location</a></li>
+				        		<li><a href="geolocation.html">GeoLocation</a></li>
+				      		</ul>
+				      	</li>
+				      	<li><a href="#">About</a>
+				    		<ul class="dropdown">
+				        		<li><a href="about.html">About Develpoer</a></li>
+				        		<li><a href="contact.html">Contact Us</a></li>
+				      		</ul>
+				      	</li>
+				  	</ul>
+				</nav>
+			</div>
+			<div class="clearfix"></div>
+			<!-- end menu -->
+		</div>		
+	</div>
+	<!-- end header -->
+
+
+	<!-- content -->
+	<div class="for-search">
+		<div class="container">
+			<h3 class="searchtype"><img src="assets/img/file-icon.png" width="30px;"> Google Search <p style="font-size: 14px;">(From google api )</p></h3>
+		</div>
+		<div class="container">
+				<!-- for search -->
+			<div class="search-header">
+				<img src="assets/img/google_search.jpeg">
+				<div class="search-box">
+				  	<input id="searchText" type="text" placeholder="Search.." name="search">
+				  	<a class="search-submit"><i class="fa fa-search"></i></a>
+				</div>
+			</div>
+
+		 	<!-- search options -->
+		 	<div class="search-options">
+		 		<div class="select-buttons">
+			 		<button class="select-options select-all">
+			 			Select All
+			 		</button>
+
+			 		<button class="select-options select-none">
+			 			Select None
+			 		</button>
+		 		</div>
+				
+				<div class="select-download">
+					<form>	
+						<input type="text" name="fileName" class="search-input">
+					</form>
+				</div>
+				<div class="select-download">
+
+					<select name="fileType" class="select-extension">
+					  	<option value="json">.JSON</option>
+					  	<option value="csv">.CSV</option>
+					  	<option value="xml">.XML</option>
+					</select>
+					</div>
+				<div class="select-download">
+			 		<a class="select-options download">
+			 			Download
+			 		</a>
+				</div>
+
+		 	</div>
+		 	<!-- end search options -->
+
+		 	<!-- for search results -->
+		 	<div id="ret" class="search-results">
+		 		<img width="100px" src="assets/img/loader.gif">
+		 	</div>
+		 	<div class="page-data"></div>
+		</div>
+	</div>
+	
+	<!-- end content -->
+
+	
+	<!-- for footer -->
+	<div class="footer">
+		<div class="container">
+			<h3>Copyright &copy; Nikunjan GC</h3>
+		</div>
+	</div>
+	<!-- end footer -->
+
+
+	<!-- for scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			function GoogleApi(){
+				this.current = 1;
+				this.fixedArray = {},
+				this.loadDataFromApi = function(startIndex){
+
+					 let that =  this;
+					   let cx='011051836861358997619:e6kfvrhl2vg'
+					   // let key='AIzaSyBJi2DBfpY4Hb2opJa__4Ui2As0E5mICEQ'
+                      // AIzaSyBTvy-Ns4Qa2rXplzhLtvouaGCnZ8xwnUk 
+                       //https://developers.google.com/custom-search/v1/overview?hl=en_US
+                       //Custom Search JSON API provides 100 search queries per day for free. If you need more, you may sign up for billing in the API Console. Additional requests cost $5 per 1000 queries, up to 10k queries per day.
+
+   					   var key='AIzaSyAZrcew5bAAMklavm1GAtcMwxAvGmMoOJY'
+					   let search_url= "https://www.googleapis.com/customsearch/v1?key="+key+"&cx="+cx+"&q="+$("#searchText").val();
+					   let x=encodeURI(search_url);
+					   if($("#searchText").val()==''){
+							$('#ret').empty().append("<h3>Showing 0 results for \" \"</h3>");
+							
+						}else{
+
+							 $.ajax({
+							 	url:x + '&start=' + startIndex,
+							 	async:false,
+      							dataType:'json',
+							 	success:function(data){
+								 		console.log(data);
+										that.fixedArray = data.items;
+								 		that.loadData(data);
+									},
+								error:function(error){
+									window.location.reload();
+								}
+							 });
+							
+						}
+				}, 
+				this.loadData = function(ret){
+						 let that = this;
+					 	 let data = "";
+					 	 data += '<h3>Showing '+ret.searchInformation.formattedTotalResults+' results for "'+$("#searchText").val()+'"  '+
+					 	 		 '('+ret.searchInformation.formattedSearchTime+' seconds)'+'</h3>';
+
+					 	 $.each( ret.items, function( key, val ) {
+					 		data += '<div class="search-items-list">'+
+					 					'<label class="check-search">'+
+										  	'<input type="checkbox" name="key" value="'+key+'">'+
+										  	'<span class="checkmark"></span>'+
+										'</label>'+
+							 			'<a target="_blank" href="'+val.link+'" class="item-link">'+val.title+'</a><br>'+
+							 			'<a target="_blank" href="'+val.link+'" class="sub-link">'+val.link+'</a>'+
+							 			'<p>'+val.snippet+'</p>'+	
+							 		'</div>';
+						 });
+						
+						 setTimeout(function(){
+						 	$("#ret").empty().append(data);
+						 },1000);
+						 
+
+						that.initClickListenerForSelect();
+				},
+				this.paginationData = function(){
+					// not necessary to init start-index just for future dev
+					let data =  '<ul class="pagination">'+
+								'<li><a class="pagePrev">Prev</a></li>';
+								
+								for(let i=1;i<10;i++){
+									data += '<li><a class="paginationData  '+(this.current==i?'active':'')+'" page-id="'+i+'">'+i+'</a></li>';
+
+								}
+						data += '<li><a class="pageNext">Next</a></li>'+
+								'</ul>';
+
+							$(".page-data").empty().append(data);
+
+
+							if(this.current==1){
+								$('.pagePrev').hide();
+							}else{
+								$('.pagePrev').show();
+
+							}
+							if(this.current==9){
+								$('.pageNext').hide();
+							}else{
+								$('.pageNext').show();
+
+							}
+
+
+							this.initPaginationListener();
+
+							this.initClickListenerForSelect();
+				},
+				this.initClickListenerForSelect = function(){
+					let that = this;
+					$(document).on('click','.select-all',function(event){
+						event.stopPropagation();
+
+						$(this).addClass('activeclass');
+						$(".select-none").removeClass('activeclass');
+						let datas= document.querySelectorAll('#ret input[name=key]');
+						for(let i=0;i<datas.length;i++)
+							$(datas[i]).prop('checked', true);
+
+					});
+					$(document).on('click','.select-none',function(event){
+						event.stopPropagation();
+
+						$(this).addClass('activeclass');
+						$(".select-all").removeClass('activeclass');
+
+						let datas= document.querySelectorAll('#ret input[name=key]');
+						for(let i=0;i<datas.length;i++)
+							$(datas[i]).prop('checked', false);
+					});
+					
+					
+
+					
+				}
+				this.initListener = function(){
+
+					let that = this;
+					that.initClickListenerForSelect();
+
+					$(".select-download a").click(function(event){
+						event.stopPropagation();
+
+						let newArray = [];
+						let datas= document.querySelectorAll('#ret input[name=key]:checked');
+						if(datas.length>0){
+							for(let i=0;i<datas.length;i++){
+								let dataId = parseInt($(datas[i]).val());
+								newArray.push(that.fixedArray[dataId]);
+							}
+							that.exportData(newArray);
+
+						}else{
+							alert("Select at least 1 data to export/download");
+						}
+					});
+
+
+
+					$(document).on('click','.search-submit',function(){
+
+
+						$(".select-all").removeClass('activeclass');
+						$(".select-none").removeClass('activeclass');
+
+						$('#ret').empty().append('<img width="100px" src="assets/img/loader.gif">');
+						let searchText = $("#searchText").val();
+						if(searchText==null || searchText==''){
+							alert("Search field cannot be empty");
+						   $('#ret').empty().append("<h3>Showing 0 results for \" \"</h3>");
+
+						}else{
+
+							that.loadDataFromApi(1);
+							setTimeout(function(){
+								that.paginationData();
+							},1000);
+							if(that.current==1){
+								$('.pagePrev').hide();
+							}else{
+								$('.pagePrev').show();
+
+							}
+
+						}
+					});
+
+					
+
+				},
+				this.initPaginationListener=function(){
+					let that = this;
+					$(document).off().on('click','.paginationData',function(event){
+								event.stopPropagation();
+								$('#ret').empty().append('<img width="100px" src="assets/img/loader.gif">');
+   
+
+								let  current = parseInt($(this).attr('page-id'));
+								that.current = current;
+
+
+								let start = current*10;
+								that.loadDataFromApi(start);
+								that.paginationData();
+							});
+
+					        $(document).on('click','.pagePrev',function(event){
+
+								event.stopPropagation();
+						$('#ret').empty().append('<img width="100px" src="assets/img/loader.gif">');
+
+								that.current = that.current-1;
+								let  start = that.current*10;
+
+								alert(start);
+
+
+								that.loadDataFromApi(start);
+								that.paginationData();
+							}); 
+							$(document).on('click','.pageNext',function(event){
+								event.stopPropagation();
+						$('#ret').empty().append('<img width="100px" src="assets/img/loader.gif">');
+
+								that.current = that.current+1;
+								let  start = that.current*10;
+								alert(start);
+								that.loadDataFromApi(start);
+								that.paginationData();
+
+							});
+				},
+
+				
+				this.download = function(filename, data,type){
+					  var element = document.createElement('a');
+					  if(type=="json"){
+					 	 element.setAttribute('href', 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data)));
+					  }
+					  if(type=="csv"){
+					 	 element.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(data));
+					  }
+					  if(type=="xml"){
+					 	 element.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent(data));
+					  }
+					  element.setAttribute('download', filename);
+
+					  element.style.display = 'none';
+					  document.body.appendChild(element);
+
+					  element.click();
+
+					  document.body.removeChild(element);
+				},
+				this.formatArray=function(arr){
+					let tempArr = [];
+					for(let i=0;i<arr.length;i++){
+						tempArr.push({
+									"title":arr[i].title,
+									"src":arr[i].link,
+									"description":arr[i].snippet
+								});
+
+					}
+					return tempArr;
+				},
+				this.exportData = function(arrs){
+					let formatedArr = this.formatArray(arrs);
+					let that = this;
+					let arr = {results:formatedArr};
+
+					console.log(arr);
+
+					let filename = $('input[name=fileName]').val();
+					let filetype = $('select[name=fileType]').val();
+					if(filename=='' || filename==null){
+						alert("Enter valid File Name.");
+					}else{
+						if(filetype=='json'){
+							that.download(filename+"."+filetype,arr,filetype);
+						}else if(filetype=='csv'){
+							let fields = ["title","src","description"];
+							let tempCsv = that.jsonToCsvFormat(arr,fields);
+							that.download(filename+"."+filetype,tempCsv,filetype);
+
+						}else if(filetype=='xml'){
+							let tempXml = that.jsonToXml(arr);
+							that.download(filename+"."+filetype,tempXml,filetype);
+						}else{
+							alert('unsupported format');
+						}
+					}
+				}
+				this.jsonToCsvFormat = function(jsonDataArr,jsonFields){
+
+					    let jsonData=jsonDataArr.results;
+					    console.log("jsonData");
+					    console.log(jsonData);
+						var csvStr = jsonFields.join(",") + "\n";
+						
+						for(let i = 0; i < jsonData.length; i++) {
+							csvStr += Object.getOwnPropertyNames(jsonData[i])
+							 .map( e => '"'+jsonData[i][e]+'"').join(",")
+							 + "\n";
+						}
+					 
+						return csvStr;
+				},
+				this.jsonToXml = function(arrs){
+ 							let arr = arrs.results;
+
+						   var result='<?xml version="1.0" encoding="UTF-8"?>\r\n'+
+						   					'<results>\r\n';
+ 							   for(i=0;i<arr.length;i++){
+							   	 result += '<result>\r\n';
+							     result += '<title>'+arr[i].title.replace('&','&amp;')+'</title>\r\n';
+							     result += '<src>'+arr[i].src.replace('&','&amp;')+'</src>\r\n';
+							     result += '<description>'+arr[i].description.replace('&','&amp;')+'</description>\r\n';
+							   	 result += '</result>\r\n';
+
+							   }
+						   		result+="</results>"
+						   return result;
+				},
+				this.init = function(){
+					this.loadDataFromApi(1);
+					this.initListener();
+
+				}
+
+			}
+
+
+			let obj = new GoogleApi();
+				obj.init();
+
+
+
+		});
+	</script>
+
+</body>
+</html>

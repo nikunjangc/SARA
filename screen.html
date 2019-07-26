@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, inital-scale=1">
+
+<!-- stylesheet -->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/responsive.css">
+
+	<!-- font-awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/img/fav.png">
+
+</head>
+<body>
+	<!-- for header -->
+	<div class="header">
+		<div class="container header-menu">
+ 
+			<!-- menu start -->
+			<div class="menu">
+				<nav>
+				  	<ul> 
+				    	<li><a href="/index.html"><i class="fa fa-home"></i> Home</a></li>
+				    	<li><a href="#">Course</a>
+				      		<ul class="dropdown">
+				        		<li><a target="_blank" href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019"> Zybook</a></li>
+                                <li><a target="_blank" href="https://app.tophat.com/">TopHat</a></li>
+                                <li><a target="_blank" href="https://www.onlc.com/g-suite-training-classes.htm?gclid=CjwKCAjwmtDpBRAQEiwAC6lm42Y8rDlMjDSaM8VNZmMka7wVqZaoyVisdz0hsxEsye4YDh4Z-BLBChoCTq4QAvD_BwE">Course Google Drive</a></li>
+                                <li><a target="_blank" href="https://www.w3schools.com/">W3Schools</a></li>
+				      		</ul>
+				    	</li>
+			   		 	<li><a href="#">Search</a>
+				    		<ul class="dropdown">
+				        		<li><a href="fixed-list.html">Fixed List</a></li>
+				        		<li><a href="from-file.html">Form File</a></li>
+				        		<li><a href="google-api.html">Google API</a></li>
+				        		<li><a href="custom-search.html">My Search Engine</a></li>
+				      		</ul>
+			      		</li>
+			      		
+				      	<li  class="activemenu"><a href="#">Browse</a>
+				    		<ul class="dropdown">
+				        		<li><a href="navigator.html">Navigator</a></li>
+				        		<li><a href="window.html">Window</a></li>
+				        		<li><a href="screen.html">Screen</a></li>
+				        		<li><a href="location.html">Location</a></li>
+				        		<li><a href="geolocation.html">GeoLocation</a></li>
+				      		</ul>
+				      	</li>
+				      	<li><a href="#">About</a>
+				    		<ul class="dropdown">
+				        		<li><a href="about.html">About Develpoer</a></li>
+				        		<li><a href="contact.html">Contact Us</a></li>
+				      		</ul>
+				      	</li>
+				  	</ul>
+				</nav>
+			</div>
+			<div class="clearfix"></div>
+			<!-- end menu -->
+		</div>		
+	</div>
+	<!-- end header -->
+
+	
+
+	<!-- for navigator -->
+	<div class="navigator">
+		<div class="container">
+			<h3><img src="assets/img/Screen.png" width="120px;"> Screen</h3>
+			<div id="results">
+				<img width="100px" src="assets/img/loader.gif">
+			</div>
+		</div>
+	</div>
+	<!-- end navigator -->
+	
+	<!-- for footer -->
+	<div class="footer">
+		<div class="container">
+			<h3>Copyright &copy; Nikunjan GC</h3>
+		</div>
+	</div>
+	<!-- end footer -->
+
+
+	<!-- for scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+
+	<script type="text/javascript">
+			
+		$(document).ready(function(){
+
+			function Screen(){
+			      this.elementId = "#results",
+				  this.getScreen = function (){
+
+				  		return "<ul type='square' class='resultlist'>"+
+					  			   "<li><strong> Total Screen Height/Width : </strong> " + screen.width + "*" + screen.height +"</li>"+
+								   "<li><strong>Available Screen Width/Height : </strong>" + screen.availWidth + "*" + screen.availHeight + "</li>"+
+								   "<li><strong>Screen Color Depth : </strong>" + screen.colorDepth+"</li>"+
+								   "<li><strong>Screen Pixel Resolution : </strong>" + screen.pixelDepth + "</li>"+
+								"</ul>";
+
+				  },
+				  this.showResults = function(){
+				  	 	 $(this.elementId).empty().append(this.getScreen());
+				  },
+				  this.init = function (){
+				  	
+				  	 let that = this;
+				  	setTimeout(function(){
+				  		that.showResults();
+
+				  	},1000);	
+				  }
+			};
+
+			let  obj = new Screen();
+				 obj.init();
+
+		});
+		
+
+
+	</script>
+
+
+</body>
+</html>

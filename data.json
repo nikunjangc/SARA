@@ -1,0 +1,49 @@
+{
+	"results":[
+				{
+					"title":"Stock Market News-CNBC.com",
+					"src":"https://www.cnbc.com/stocks/",
+					"description":"In-depth market analysis, real-time stock market data, research and earnings from CNBC.com."
+				},
+				{
+					"title":"Stocks | Investor.gov",
+					"src":"https://www.investor.gov/introduction-investing/basics/investment-products/stocksr",
+					"description":"What are stocks? Stocks are a type of security that gives stockholders a share of ownership in a company. Stocks also are called “equities.” Why do people buy ..."
+				},
+				{
+					"title":"Stocks - Stock Trading - Stock Investing - NASDAQ.com",
+					"src":"https://www.nasdaq.com/investing/stocks.aspx",
+					"description":"Stocks - Learn about stock trading and investing at NASDAQ.com."
+				},
+
+				{
+					"title":"U.S. Stock Futures Fall on Tech Probe, Earnings: Markets Wrap",
+					"src":"https://finance.yahoo.com/news/asia-stocks-gain-earnings-trade-232931804.html",
+					"description":"  1 hour ago - (Bloomberg) -- U.S. equity futures fell and European stocks edged lower amid weak economic data and mixed corporate results, including an ..."
+				},
+
+
+				{
+					"title":"Stock investment news - MarketWatch",
+					"src":"https://www.marketwatch.com/investing/stocks",
+					"description":" U.S. stocks were rising Tuesday, with Wall Street building on the previous ... Investors are heavily borrowing to buy stocks — what does that mean for the bull ..."
+                    
+				},
+
+				{
+					"title":"Stock Market - Business - CNN.com",
+					"src":"https://money.cnn.com/data/markets/",
+					"description":"LHX185.774.28%7.62 · HCP32.563.14%0.99 · IPG23.22.97%0.67 · WELL84.172.97%2.43 · FANG104.174.74%5.18 · MRO13.554.91%0.70 · EOG87.565.94% ..."
+				},
+
+				{
+					"title":"Find the Best Stocks to Buy Today | US News Best Stocks",
+					"src":"https://money.usnews.com/investing/stocks",
+					"description":"Find new investments and research thousands of stocks at U.S. News Best Stocks. We rank or compare stocks based on popular investment metrics."
+				},
+				{
+					"title":"Stock Trading - Fidelity",
+					"src":"https://www.fidelity.com/stock-trading/overview",
+					"description":"Looking to trade stocks online? Fidelity offers unlimited trades and low commissions with its stock trading account. Learn more here."
+				}]
+}
