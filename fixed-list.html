@@ -144,7 +144,7 @@
 				this.loadDataFromFile = function(){
 					let stock= $("#searchText").val('Stock');
 					 let that =  this;
-					 $.getJSON( "https://github.com/nikunjangc/SARA/blob/master/data.json", function(ret){
+					 $.getJSON( "/data.json", function(ret){
 					 	that.fixedArray = ret.results;
 					 	 let data = "";
 					 	 data += '<h3>Showing '+ret.results.length+' results for "'+$("#searchText").val()+'"</h3>';
